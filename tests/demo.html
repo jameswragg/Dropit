@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <title>Dropit Menu</title>
+    <link rel="stylesheet" href="../dropit.css" type="text/css" />
+    <style>
+    * {
+        box-sizing: border-box;
+    }
+    body { font-family: sans-serif; }
+    .nav-bar {
+        padding: 10px;
+        background: lightgray;
+        text-align: right;
+        position: relative;
+    }
+
+    /**
+     * Dropdown styles
+     */
+    .dropdown {
+        text-align: left;
+    }
+    .dropdown .divider {
+        height: 1px;
+        margin: 9px 0;
+        overflow: hidden;
+        background-color: #e5e5e5;
+    }
+    .js .dropdown {
+        display: inline-block;
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+    .js .dropdown__submenu {
+        display: none;
+        padding: 5px 0;
+        text-align: left;
+        border: 1px solid #bbb;
+        border-radius: 6px;
+        background-color: white;
+        box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.25);
+        -webkit-animation: menu_in 0.3s;
+        animation: menu_in 0.3s;
+        -webkit-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+    }
+    .js .dropdown .dropit-item {
+        display: block;
+        padding: 9px 10px;
+        text-decoration: none;
+    }
+    .js .dropdown .dropit-item:hover {
+        background-color: #eee;
+    }
+
+
+    @-webkit-keyframes menu_in {
+        from {
+            transform: translateY(30px);
+            opacity: 0;
+        }
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+
+
+    </style>
+    <script>
+    document.getElementsByTagName('html')[0].className = 'js';
+    </script>
+</head>
+<body>
+
+    <h1>Dropit menu</h1>
+    <ul class="js-dropdown dropdown">
+        <li>
+            <a href="#">Dropdown</a>
+            <ul class="dropdown__submenu">
+                <li><a href="#">Some Action 1</a></li>
+                <li><a href="#">Some Action 2</a></li>
+                <li><a href="#">Some Action 3</a></li>
+                <li role="presentation" class="divider"></li>
+                <li><a href="#">Some Action 4 Some Action 4</a></li>
+            </ul>
+        </li>
+    </ul>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus porttitor neque quam, sed placerat ipsum rutrum at. Integer consequat consequat quam, vel elementum nisl convallis cursus.</p>
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus porttitor neque quam, sed placerat ipsum rutrum at. Integer consequat consequat quam, vel elementum nisl convallis cursus.</p>
+
+    <ul class="js-dropdown dropdown">
+        <li>
+            <a href="#">Dropdown</a>
+            <ul class="dropdown__submenu">
+                <li><a href="#">Some Action 1</a></li>
+                <li><a href="#">Some Action 2</a></li>
+                <li><a href="#">Some Action 3</a></li>
+                <li><a href="#">Some Action 4</a></li>
+            </ul>
+        </li>
+    </ul>
+
+    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus porttitor neque quam, sed placerat ipsum rutrum at. Integer consequat consequat quam, vel elementum nisl convallis cursus.</p>
+
+    <div class="nav-bar">
+        <a href="#">Menu item 1</a>
+        <ul class="js-dropdown dropdown dropit--right">
+            <li>
+                <a href="#">Dropdown 1</a>
+                <ul class="dropdown__submenu">
+                    <li><a href="#">Some Action 1</a></li>
+                    <li><a href="#">Some Action 2</a></li>
+                    <li><a href="#">Some Action 3</a></li>
+                    <li role="presentation" class="divider"></li>
+                    <li><a href="#">Some Action 4 Some Action 4</a></li>
+                </ul>
+            </li>
+        </ul>
+        <ul class="js-dropdown dropdown dropit--right">
+            <li>
+                <a href="#">
+                    Dropdown 2
+                    <i data-icon="▼" class="icon-after"></i>
+                </a>
+                <ul class="dropdown__submenu">
+                    <li><a href="#">Some Action 1</a></li>
+                    <li><a href="#">Some Action 2</a></li>
+                    <li><a href="#">Some Action 3</a></li>
+                    <li role="presentation" class="divider"></li>
+                    <li><a href="#">Some Action 4 Some Action 4</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script src="../dropit.js"></script>
+    <script>
+    $(function(){
+        $('.js-dropdown').dropit();
+    });
+    </script>
+</body>
+</html>

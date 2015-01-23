@@ -23,14 +23,15 @@
 
                     // Hide initial submenus
                     $el.addClass('dropit')
-                    .find('>'+ settings.triggerParentEl +':has('+ settings.submenuEl +')').addClass('dropit-trigger')
-                    .find(settings.submenuEl).addClass('dropit-submenu').hide();
+                        .find('>'+ settings.triggerParentEl +':has('+ settings.submenuEl +')').addClass('dropit-trigger')
+                        .find(settings.submenuEl).addClass('dropit-submenu').hide()
+                        .find('> li > a').addClass('dropit-item');
 
                     // Open on click
-                    $el.on(settings.action, settings.triggerParentEl +':has('+ settings.submenuEl +') > '+ settings.triggerEl +'', function(){
+                    $el.on(settings.action, settings.triggerParentEl +':has('+ settings.submenuEl +') > '+ settings.triggerEl +'', function(e){
 
                         // Close click menu's if clicked again
-                        if(settings.action == 'click' && $(this).parents(settings.triggerParentEl).hasClass('dropit-open')){
+                        if($(this).parents(settings.triggerParentEl).hasClass('dropit-open')){
                             methods.hide(this);
                             return false;
                         }
@@ -83,7 +84,7 @@
     };
 
     $.fn.dropit.defaults = {
-        action: 'click', // The open action for the trigger
+        action: 'click touchstart', // The open action for the trigger
         submenuEl: 'ul', // The submenu element
         triggerEl: 'a', // The trigger element
         triggerParentEl: 'li', // The trigger parent element
